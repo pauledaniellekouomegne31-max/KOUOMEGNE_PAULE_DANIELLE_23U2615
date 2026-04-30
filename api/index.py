@@ -18,7 +18,13 @@ load_dotenv()
 base_dir = os.path.dirname(os.path.abspath(__file__))
 static_dir = os.path.join(base_dir, '..', 'static')
 template_dir = os.path.join(base_dir, '..', 'templates')
-app = Flask(__name__, static_folder=static_dir, template_folder=template_dir)
+
+app = Flask(
+    __name__,
+    template_folder="../templates",
+    static_folder="../static",
+    static_url_path="/static"
+)
 app.secret_key = os.environ.get("SECRET_KEY", "coiffdata_secret_2026")
 CORS(app)
 
