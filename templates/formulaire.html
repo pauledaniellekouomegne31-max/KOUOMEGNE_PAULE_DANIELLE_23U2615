@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CoiffData — Formulaire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body class="page-form">
+
+  <div class="form-shell">
+
+    <header class="form-nav">
+      <a href="/" class="back-link">← Accueil</a>
+      <div class="form-logo">✦ CoiffData</div>
+    </header>
+
+    <!-- Barre de progression -->
+    <div class="prog-wrap">
+      <div class="prog-track">
+        <div class="prog-fill" id="progFill"></div>
+      </div>
+      <div class="prog-labels">
+        <span class="plbl active" data-s="1">Profil</span>
+        <span class="plbl" data-s="2">Salon</span>
+        <span class="plbl" data-s="3">Prestation</span>
+        <span class="plbl" data-s="4">Expérience</span>
+      </div>
+    </div>
+
+    <div class="step-counter">Étape <span id="curStep">1</span> / 4</div>
+
+    <form id="mainForm" novalidate>
+
+      <!-- ── Étape 1 : Profil ─────────────────────────────────────── -->
+      <div class="form-step active" data-step="1">
+        <h2 class="step-h">Qui êtes-vous ?</h2>
+        <p class="step-sub">Ces informations restent strictement anonymes.</p>
+
+        <div class="field">
+          <label>Sexe <span class="req">*</span></label>
+          <div class="radio-row">
+            <label class="rchoice"><input type="radio" name="sexe" value="Homme" required/><span>Homme</span></label>
+            <label class="rchoice"><input type="radio" name="sexe" value="Femme"/><span>Femme</span></label>
+            <label class="rchoice"><input type="radio" name="sexe" value="Non précisé"/><span>Non précisé</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="tranche_age">Tranche d'âge <span class="req">*</span></label>
+          <select id="tranche_age" name="tranche_age" required>
+            <option value="">-- Sélectionner --</option>
+            <option>Moins de 18 ans</option>
+            <option>18 – 25 ans</option>
+            <option>26 – 35 ans</option>
+            <option>36 – 50 ans</option>
+            <option>Plus de 50 ans</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="quartier_res">Quartier de résidence <span class="req">*</span></label>
+          <input type="text" id="quartier_res" name="quartier_res" placeholder="Ex: Bastos, Biyem-Assi, Akwa…" required/>
+        </div>
+
+        <div class="field">
+          <label for="profession">Profession <span class="req">*</span></label>
+          <select id="profession" name="profession" required>
+            <option value="">-- Sélectionner --</option>
+            <option>Étudiant(e)</option>
+            <option>Salarié(e)</option>
+            <option>Commerçant(e)</option>
+            <option>Fonctionnaire</option>
+            <option>Entrepreneur(e)</option>
+            <option>Sans emploi</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Fréquence de visite en salon <span class="req">*</span></label>
+          <div class="radio-col">
+            <label class="rchoice"><input type="radio" name="freq_visite" value="Première visite" required/><span>C'est ma première visite</span></label>
+            <label class="rchoice"><input type="radio" name="freq_visite" value="Chaque semaine"/><span>Chaque semaine</span></label>
+            <label class="rchoice"><input type="radio" name="freq_visite" value="Deux fois par mois"/><span>Deux fois par mois</span></label>
+            <label class="rchoice"><input type="radio" name="freq_visite" value="Une fois par mois"/><span>Une fois par mois</span></label>
+            <label class="rchoice"><input type="radio" name="freq_visite" value="Occasionnellement"/><span>Occasionnellement</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Étape 2 : Salon ──────────────────────────────────────── -->
+      <div class="form-step" data-step="2">
+        <h2 class="step-h">Le salon visité</h2>
+        <p class="step-sub">Parlez-nous du salon où vous avez été reçu(e).</p>
+
+        <div class="field">
+          <label for="nom_salon">Nom du salon <span class="req">*</span></label>
+          <input type="text" id="nom_salon" name="nom_salon" placeholder="Ex: Salon Prestige, Chez Mado…" required/>
+        </div>
+
+        <div class="field">
+          <label for="ville">Ville <span class="req">*</span></label>
+          <select id="ville" name="ville" required>
+            <option value="">-- Sélectionner --</option>
+            <option>Yaoundé</option>
+            <option>Douala</option>
+            <option>Bafoussam</option>
+            <option>Garoua</option>
+            <option>Maroua</option>
+            <option>Bamenda</option>
+            <option>Ngaoundéré</option>
+            <option>Bertoua</option>
+            <option>Ebolowa</option>
+            <option>Buea</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="quartier_salon">Quartier du salon <span class="req">*</span></label>
+          <input type="text" id="quartier_salon" name="quartier_salon" placeholder="Ex: Centre-ville, Melen…" required/>
+        </div>
+
+        <div class="field">
+          <label>Type de salon <span class="req">*</span></label>
+          <div class="radio-col">
+            <label class="rchoice"><input type="radio" name="type_salon" value="Salon mixte" required/><span>Salon mixte (hommes & femmes)</span></label>
+            <label class="rchoice"><input type="radio" name="type_salon" value="Salon femmes"/><span>Salon pour femmes uniquement</span></label>
+            <label class="rchoice"><input type="radio" name="type_salon" value="Salon hommes"/><span>Salon pour hommes uniquement</span></label>
+            <label class="rchoice"><input type="radio" name="type_salon" value="Coiffeur à domicile"/><span>Coiffeur/se à domicile</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="nb_coiffeurs">Nombre de coiffeurs dans le salon <span class="req">*</span></label>
+          <select id="nb_coiffeurs" name="nb_coiffeurs" required>
+            <option value="">-- Sélectionner --</option>
+            <option>1 (seul)</option>
+            <option>2 – 3</option>
+            <option>4 – 6</option>
+            <option>Plus de 6</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Services annexes proposés</label>
+          <div class="check-grid">
+            <label class="cchoice"><input type="checkbox" name="services_ann" value="Manucure"/><span>Manucure</span></label>
+            <label class="cchoice"><input type="checkbox" name="services_ann" value="Pédicure"/><span>Pédicure</span></label>
+            <label class="cchoice"><input type="checkbox" name="services_ann" value="Maquillage"/><span>Maquillage</span></label>
+            <label class="cchoice"><input type="checkbox" name="services_ann" value="Soins visage"/><span>Soins visage</span></label>
+            <label class="cchoice"><input type="checkbox" name="services_ann" value="Vente de produits"/><span>Vente de produits</span></label>
+            <label class="cchoice"><input type="checkbox" name="services_ann" value="Aucun"/><span>Aucun</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Étape 3 : Prestation ─────────────────────────────────── -->
+      <div class="form-step" data-step="3">
+        <h2 class="step-h">La prestation reçue</h2>
+        <p class="step-sub">Détaillez votre visite et ce que vous avez payé.</p>
+
+        <div class="field">
+          <label for="type_coiffure">Type de coiffure réalisée <span class="req">*</span></label>
+          <select id="type_coiffure" name="type_coiffure" required>
+            <option value="">-- Sélectionner --</option>
+            <option>Coupe simple</option>
+            <option>Tresses</option>
+            <option>Locks / Dreadlocks</option>
+            <option>Défrisage</option>
+            <option>Tissage</option>
+            <option>Coloration</option>
+            <option>Coiffure naturelle</option>
+            <option>Barbier / Rasage</option>
+            <option>Soin capillaire</option>
+            <option>Autre</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="duree_min">Durée de la prestation (minutes) <span class="req">*</span></label>
+          <select id="duree_min" name="duree_min" required>
+            <option value="">-- Sélectionner --</option>
+            <option value="20">Moins de 30 min</option>
+            <option value="45">30 – 60 min</option>
+            <option value="90">1h – 2h</option>
+            <option value="150">2h – 3h</option>
+            <option value="210">Plus de 3h</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Produits utilisés <span class="req">*</span></label>
+          <div class="radio-col">
+            <label class="rchoice"><input type="radio" name="produits" value="Produits du salon" required/><span>Produits fournis par le salon</span></label>
+            <label class="rchoice"><input type="radio" name="produits" value="Mes propres produits"/><span>J'ai apporté mes propres produits</span></label>
+            <label class="rchoice"><input type="radio" name="produits" value="Mixte"/><span>Mixte (salon + les miens)</span></label>
+            <label class="rchoice"><input type="radio" name="produits" value="Aucun produit"/><span>Aucun produit particulier</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="prix_fcfa">Prix payé (FCFA) <span class="req">*</span></label>
+          <input type="number" id="prix_fcfa" name="prix_fcfa" placeholder="Ex: 2500" min="0" max="500000" required/>
+        </div>
+
+        <div class="field">
+          <label>Moyen de paiement utilisé <span class="req">*</span></label>
+          <div class="radio-col">
+            <label class="rchoice"><input type="radio" name="paiement" value="Espèces" required/><span>Espèces</span></label>
+            <label class="rchoice"><input type="radio" name="paiement" value="Mobile Money"/><span>Mobile Money (Orange, MTN…)</span></label>
+            <label class="rchoice"><input type="radio" name="paiement" value="Carte bancaire"/><span>Carte bancaire</span></label>
+            <label class="rchoice"><input type="radio" name="paiement" value="Autre"/><span>Autre</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Avez-vous laissé un pourboire ? <span class="req">*</span></label>
+          <div class="radio-row">
+            <label class="rchoice"><input type="radio" name="pourboire" value="Oui" required/><span>Oui</span></label>
+            <label class="rchoice"><input type="radio" name="pourboire" value="Non"/><span>Non</span></label>
+            <label class="rchoice"><input type="radio" name="pourboire" value="Parfois"/><span>Parfois</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Étape 4 : Expérience ─────────────────────────────────── -->
+      <div class="form-step" data-step="4">
+        <h2 class="step-h">Votre expérience globale</h2>
+        <p class="step-sub">Notez chaque critère de 1 (très mauvais) à 5 (excellent).</p>
+
+        <div class="field">
+          <label>Note globale <span class="req">*</span></label>
+          <div class="stars-row" data-name="note_generale">
+            <span class="star" data-v="1">★</span>
+            <span class="star" data-v="2">★</span>
+            <span class="star" data-v="3">★</span>
+            <span class="star" data-v="4">★</span>
+            <span class="star" data-v="5">★</span>
+          </div>
+          <input type="hidden" name="note_generale" id="note_generale" required/>
+        </div>
+
+        <div class="field">
+          <label>Accueil & convivialité</label>
+          <div class="stars-row" data-name="note_accueil">
+            <span class="star" data-v="1">★</span>
+            <span class="star" data-v="2">★</span>
+            <span class="star" data-v="3">★</span>
+            <span class="star" data-v="4">★</span>
+            <span class="star" data-v="5">★</span>
+          </div>
+          <input type="hidden" name="note_accueil" id="note_accueil"/>
+        </div>
+
+        <div class="field">
+          <label>Qualité de la coiffure</label>
+          <div class="stars-row" data-name="note_qualite">
+            <span class="star" data-v="1">★</span>
+            <span class="star" data-v="2">★</span>
+            <span class="star" data-v="3">★</span>
+            <span class="star" data-v="4">★</span>
+            <span class="star" data-v="5">★</span>
+          </div>
+          <input type="hidden" name="note_qualite" id="note_qualite"/>
+        </div>
+
+        <div class="field">
+          <label>Propreté du salon</label>
+          <div class="stars-row" data-name="note_proprete">
+            <span class="star" data-v="1">★</span>
+            <span class="star" data-v="2">★</span>
+            <span class="star" data-v="3">★</span>
+            <span class="star" data-v="4">★</span>
+            <span class="star" data-v="5">★</span>
+          </div>
+          <input type="hidden" name="note_proprete" id="note_proprete"/>
+        </div>
+
+        <div class="field">
+          <label>Rapport qualité / prix</label>
+          <div class="stars-row" data-name="note_qp">
+            <span class="star" data-v="1">★</span>
+            <span class="star" data-v="2">★</span>
+            <span class="star" data-v="3">★</span>
+            <span class="star" data-v="4">★</span>
+            <span class="star" data-v="5">★</span>
+          </div>
+          <input type="hidden" name="note_qp" id="note_qp"/>
+        </div>
+
+        <div class="field">
+          <label>Recommanderiez-vous ce salon ? <span class="req">*</span></label>
+          <div class="radio-col">
+            <label class="rchoice"><input type="radio" name="recommandation" value="Oui, certainement" required/><span>Oui, certainement</span></label>
+            <label class="rchoice"><input type="radio" name="recommandation" value="Probablement"/><span>Probablement</span></label>
+            <label class="rchoice"><input type="radio" name="recommandation" value="Pas sûr(e)"/><span>Pas sûr(e)</span></label>
+            <label class="rchoice"><input type="radio" name="recommandation" value="Non"/><span>Non</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="commentaire">Commentaire libre (facultatif)</label>
+          <textarea id="commentaire" name="commentaire" rows="3" placeholder="Partagez votre ressenti…"></textarea>
+        </div>
+      </div>
+
+      <!-- ── Navigation ──────────────────────────────────────────── -->
+      <div class="form-nav-btns">
+        <button type="button" class="btn-prev" id="btnPrev" style="display:none">← Précédent</button>
+        <button type="button" class="btn-next" id="btnNext">Suivant →</button>
+        <button type="submit" class="btn-submit" id="btnSubmit" style="display:none">
+          <span id="submitTxt">Envoyer mes réponses ✦</span>
+          <span id="submitLoad" style="display:none">Envoi en cours…</span>
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <script src="/static/js/formulaire.js"></script>
+</body>
+</html>
