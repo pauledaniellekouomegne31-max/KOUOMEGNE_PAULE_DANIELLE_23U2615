@@ -32,4 +32,5 @@ Structure du projet
 - `vercel.json` : Configuration pour le déploiement Cloud.
 
  Auteur
-Paule Danielle Kouomegne** Matricule : 23U2615
+KOUOMEGNE PAULE DANIELLE 
+Matricule : 23U2615
