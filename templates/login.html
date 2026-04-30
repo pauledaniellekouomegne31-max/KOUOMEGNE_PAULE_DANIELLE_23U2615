@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CoiffData — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body class="page-login">
+
+  <div class="login-wrapper">
+
+    <div class="login-logo">✂ CoiffData</div>
+    <h2>Espace Administrateur</h2>
+    <p class="login-sub">Accès réservé. Entrez votre mot de passe.</p>
+
+    {% if erreur %}
+    <div class="alert-error">{{ erreur }}</div>
+    {% endif %}
+
+    <form method="POST" action="/login" class="login-form">
+      <div class="field-group">
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="••••••••"
+          required
+          autofocus
+        />
+      </div>
+      <button type="submit" class="btn-primary full-width">
+        Se connecter →
+      </button>
+    </form>
+
+    <a href="/" class="back-link">← Retour à l'accueil</a>
+
+  </div>
+
+</body>
+</html>
