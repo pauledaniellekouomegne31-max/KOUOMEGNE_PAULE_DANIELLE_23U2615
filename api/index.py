@@ -14,7 +14,7 @@ import pandas as pd
 
 
 load_dotenv()
-On définit le chemin vers le dossier parent pour trouver static et templates
+# On définit le chemin vers le dossier parent pour trouver static et templates
 base_dir = os.path.dirname(os.path.abspath(__file__))
 static_dir = os.path.join(base_dir, '..', 'static')
 template_dir = os.path.join(base_dir, '..', 'templates')
@@ -94,7 +94,7 @@ def soumettre():
             "quartier_salon": d.get("quartier_salon"),
             "type_salon":     d.get("type_salon"),
             "nb_coiffeurs":   d.get("nb_coiffeurs"),
-            "services_ann":   json.dumps(d.get("services_ann", []), ensure_ascii=False),
+            "services_ann":   json.dumps(d.get("services_annexes", []), ensure_ascii=False),  # CORRIGÉ Bug 3 : formulaire.js envoie "services_annexes"
             "type_coiffure":  d.get("type_coiffure"),
             "duree_min":      _int(d.get("duree_min")),
             "produits":       d.get("produits"),
@@ -105,7 +105,7 @@ def soumettre():
             "note_accueil":   _int(d.get("note_accueil")),
             "note_qualite":   _int(d.get("note_qualite")),
             "note_proprete":  _int(d.get("note_proprete")),
-            "note_qp":        _int(d.get("note_qp")),
+            "note_qp":        _int(d.get("note_qualite_prix")),  # CORRIGÉ Bug 3 : formulaire.js envoie "note_qualite_prix"
             "recommandation": d.get("recommandation"),
             "commentaire":    d.get("commentaire", ""),
             "soumis_le":      datetime.utcnow().isoformat(),
