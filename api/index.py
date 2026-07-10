@@ -16,13 +16,13 @@ import pandas as pd
 load_dotenv()
 # On définit le chemin vers le dossier parent pour trouver static et templates
 base_dir = os.path.dirname(os.path.abspath(__file__))
-static_dir = os.path.join(base_dir, '..', 'static')
+static_dir = os.path.join(base_dir, '..', 'public', 'static')
 template_dir = os.path.join(base_dir, '..', 'templates')
 
 app = Flask(
     __name__,
     template_folder="../templates",
-    static_folder="../static",
+    static_folder="../public/static",
     static_url_path="/static"
 )
 app.secret_key = os.environ.get("SECRET_KEY", "coiffdata_secret_2026")
