@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const cards = document.querySelectorAll(".info-card");
+  const cards = document.querySelectorAll(".why-card");
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {

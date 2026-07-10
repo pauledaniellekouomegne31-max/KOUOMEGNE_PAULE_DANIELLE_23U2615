@@ -100,7 +100,7 @@ def soumettre():
             "quartier_salon": d.get("quartier_salon"),
             "type_salon":     d.get("type_salon"),
             "nb_coiffeurs":   d.get("nb_coiffeurs"),
-            "services_ann":   json.dumps(d.get("services_annexes", []), ensure_ascii=False),  # CORRIGÉ Bug 3 : formulaire.js envoie "services_annexes"
+            "services_ann":   json.dumps(d.get("services_ann", []), ensure_ascii=False),
             "type_coiffure":  d.get("type_coiffure"),
             "duree_min":      _int(d.get("duree_min")),
             "produits":       d.get("produits"),
@@ -111,7 +111,7 @@ def soumettre():
             "note_accueil":   _int(d.get("note_accueil")),
             "note_qualite":   _int(d.get("note_qualite")),
             "note_proprete":  _int(d.get("note_proprete")),
-            "note_qp":        _int(d.get("note_qualite_prix")),  # CORRIGÉ Bug 3 : formulaire.js envoie "note_qualite_prix"
+            "note_qp":        _int(d.get("note_qp")),
             "recommandation": d.get("recommandation"),
             "commentaire":    d.get("commentaire", ""),
             "soumis_le":      datetime.utcnow().isoformat(),
